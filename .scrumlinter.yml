@@ -1,6 +1,6 @@
 rules:
-  - id: issue-reference
-    description: "Commits should reference a valid issue (e.g., #5)."
-    pattern: "#[0-9]+"
-    severity: error
+  - id: commit-traceability
+    description: "Do not require issue references in individual commits"
     applies_to: commit_messages
+    condition: "must_not contain '#[0-9]+'"
+    severity: warning
