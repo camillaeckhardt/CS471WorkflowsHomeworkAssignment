@@ -1,0 +1,6 @@
+rules:
+  - id: issue-reference
+    description: "Commits should reference a valid issue (e.g., #5)."
+    pattern: "#[0-9]+"
+    severity: error
+    applies_to: commit_messages
