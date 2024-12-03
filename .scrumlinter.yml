@@ -1,6 +1,13 @@
 rules:
-  - id: commit-traceability
-    description: "Do not require issue references in individual commits"
+  - id: issue-reference-in-squash
+    description: "Commits should not reference issues directly. Only the squashed commit should contain the issue reference."
+    pattern: "#[0-9]+"
     applies_to: commit_messages
-    condition: "must_not contain '#[0-9]+'"
-    severity: warning
+    severity: error
+    condition: "not in final commit"
+
+  - id: pr-description-reference
+    description: "PR description should include an issue reference (e.g., Closes #2)."
+    applies_to: pull_request_body
+    severity: error
+    pattern: "Closes #[0-9]+"
